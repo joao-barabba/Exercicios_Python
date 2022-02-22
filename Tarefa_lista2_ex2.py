@@ -26,4 +26,4 @@ else:
         maior=n3
 
 ## Imprimindo na Tela:
-print(f"O maior valor é {maior:,.2f} e a menor é {menor:,.2f}")                            
+print(f"O maior valor é {maior:,} e a menor é {menor:,}")                            
