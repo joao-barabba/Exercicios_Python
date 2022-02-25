@@ -16,4 +16,4 @@ elif o=='/':
     print(f'O resultado da conta é {r:,}')
 else:
     print('Operador não reconhecido ERRO!!!')       
-        
+       
