@@ -4,4 +4,4 @@ raio=(float(input('Digite o raio da circuferência: ')))
 area=3.14*(raio*raio)
 perimetro=2*3.14*raio
 
-print(f'Sua área é: {area:,.2f} e o perimetro{perimetro:,.2f}')
+print(f'Sua área é: {area:,.2f} e o perimetro {perimetro:,.2f}')
