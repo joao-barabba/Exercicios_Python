@@ -5,6 +5,7 @@ print('Bem vindo ao nosso menu favor selecionar a operação escolhida conforme 
 operacao=input('1- Adição 2- Subtração 3- Divisão 4- Multiplicação :  ')
 num=int(input('Digite um número para na saída ter a tabuada: '))
 c=1
+res=0
 
 if operacao=='1':
     while c<=10:
