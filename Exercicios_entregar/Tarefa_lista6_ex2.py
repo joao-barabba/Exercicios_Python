@@ -12,16 +12,3 @@ x=0
 while x<count:
     print(nome[x])
     x+=1     
-#nome=[]
-#a = 0
-#count=int(input('Quantos nome você quer adcionar nesta lista? '))
-#x=0
-#while x < count:
-#    a = input("Escreva um nome: ")
-#    nome.append(a)
-#    x+=1
-#x=0
-#print(nome)
-#while x < count:
-#    print(nome[x])
-#    x+=1
