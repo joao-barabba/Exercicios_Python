@@ -12,16 +12,18 @@ Total de 8800 votos
 O Sistema Operacional mais votado foi o Unix, com 3500 votos, correspondendo a 40% dos votos.
 '''
 sistemas=[0]
-count=0
+total=-1# total de votos começa negativos pois tem o input FIM para encerrar o programa
+
+
 
 def votacao (voto): ## Declarando função para a votação
-    global windows, unix, linux, netware,mac,outros  
+    global windows, unix, linux, netware,mac,outros,outrosPersent,windowsPersent,unixPersent,linuxPersent,netwarePersent,macPersent,total
     if voto.isalpha():
         if voto == "FIM" or voto == "fim" or voto == "Fim":
             print("Votação encerrada!")
             print_resultados()
     elif voto.isnumeric():
-        if voto == "1" or voto =="2" or voto =="3" or voto =="4" or voto == "5" or voto == "6":
+        if voto == "1" or voto =="2" or voto =="3" or voto =="4" or voto == "5" or voto == "6": 
             if voto=="1":
                 windows+=1
             elif voto=="2":
@@ -36,16 +38,36 @@ def votacao (voto): ## Declarando função para a votação
                 outros+=1
         else:
             voto=input("Valor não reconhecido, Digite um valor válido para votação :  ")
+            total-=1
             votacao(voto)
 def print_resultados():#Printando Resultados Ordenando e encerrando o programa
-    global windows,unix,linux,netware,mac,outros                              
-    sistemas[0]=windows
-    sistemas[1]=unix
-    sistemas[2]=linux
-    sistemas[3]=netware
-    sistemas[4]=mac
-    sistemas[5]=outros
-    print(sistemas)
+    global windows,unix,linux,netware,mac,outros,outrosPersent,windowsPersent,unixPersent,linuxPersent,netwarePersent,macPersent,total,indexLista,persentLista
+    windowsPersent=(windows*100)/total
+    unixPersent=(unix*100)/total
+    linuxPersent=(linux*100)/total
+    netwarePersent=(netware*100)/total
+    macPersent=(mac*100)/total
+    outrosPersent=(outros*100)/total
+                                  
+    sistemas=[windows,unix,linux,netware,mac,outros]
+    indexLista=[sistemas]
+    persentLista=[windowsPersent,unixPersent,linuxPersent,netwarePersent,macPersent,outrosPersent]
+    print(f"Windows quantidade de votos {sistemas[0]} porcentagem  % {windowsPersent:.2f}")
+    print(f"Unix quantidade de votos {sistemas[1]} porcentagem  % {unixPersent:.2f}")
+    print(f"Linux quantidade de votos {sistemas[2]} porcentagem  % {linuxPersent:.2f}")
+    print(f"Netware quantidade de votos {sistemas[3]} porcentagem  % {netwarePersent:.2f}")
+    print(f"Mac Os quantidade de votos {sistemas[4]} porcentagem  % {macPersent:.2f}")
+    print(f"Outros quantidade de votos {sistemas[5]} porcentagem  % {outrosPersent:.2f}\n")
+    print(f"O total de votos foi {total}")
+    
+    
+    sistemas.sort()#Coloca em ordem crescente o sistema que teve mais votos ao que teve menos votos
+    sistemas.sort(reverse=True)
+    indexLista.sort()#Coloca em ordem crescente o sistema que teve mais votos ao que teve menos votos
+    indexLista.sort(reverse=True)
+    persentLista.sort()#Coloca em ordem crescente o sistema que teve mais votos ao que teve menos votos
+    persentLista.sort(reverse=True)
+    print(f"O servidor vencedor é {indexLista[0]} com {sistemas[0]} de votos e com %{persentLista[0]} do total de votos")
     exit()
 if __name__ == '__main__':  # funcao main 
     windows = 0
@@ -55,6 +77,7 @@ if __name__ == '__main__':  # funcao main
     mac = 0
     outros = 0              
     while True:
+        total+=1 
         voto=input("Qual o melhor Sistema Operacional para uso em servidores?\n 1- Windows 2- Unix 3- Linux 4- Netware 5- Mac OS 6- Outro: \n")
         votacao(voto)
 
